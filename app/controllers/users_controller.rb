@@ -29,7 +29,11 @@ end
   end
 
   def edit
-    @user = User.find(params[:id])
+    if current_user.admin? or current_user? User.find(params[:id]) # only admin and user himself can edit
+      @user = User.find(params[:id])
+    else
+      redirect_back fallback_location: '/'
+    end
   end
 
   def update
@@ -51,7 +55,7 @@ end
   private
 
   def user_params
-     params.require(:user).permit(:name, :email, :password, :password_confirmation)
+     params.require(:user).permit(:name, :email, :password, :password_confirmation, :mobile_number)
   end
 
   def logged_in_user

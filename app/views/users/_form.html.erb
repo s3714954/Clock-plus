@@ -1,17 +1,22 @@
 <%= form_for(@user) do |f| %>
   <%= render 'shared/error_messages', object: @user %>
 
-  <%= f.label :name %>
-  <%= f.text_field :name, class: 'form-control' %>
+  <% if logged_in? %>
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control' %>
+  <% end %>
 
   <%= f.label :email %>
   <%= f.text_field :email, class: 'form-control' %>
 
   <%= f.label :password %>
-  <%= f.text_field :password, class: 'form-control' %>
+  <%= f.password_field :password, class: 'form-control' %>
 
   <%= f.label :password_confirmation %>
-  <%= f.text_field :password_confirmation, class: 'form-control' %>
+  <%= f.password_field :password_confirmation, class: 'form-control' %>
+
+  <%= f.label :mobile_number %>
+  <%= f.text_field :mobile_number, class: 'form-control' %>
 
   <%= f.submit yield(:button_text), class: "btn btn-primary" %>
 <% end %>
