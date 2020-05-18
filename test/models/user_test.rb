@@ -4,16 +4,17 @@ class UserTest < ActiveSupport::TestCase
 
   def setup
     @user = User.new(name: "Example User", email: "user@example.com",
-                      password: "footbar", password_confirmation: "footbar")
+                      password: "footbar", password_confirmation: "footbar",
+                      mobile_number: "+61-123456789")
   end
 
   test "should be valid" do
     assert @user.valid?
   end
 
-  test "name should be present" do
+  test "name not necessary" do # name not necessary since not only email+password+mobile needed
     @user.name = " "
-    assert_not @user.valid?
+    assert @user.valid?
   end
   
   test "email should be present" do
@@ -47,5 +48,12 @@ class UserTest < ActiveSupport::TestCase
 
   test "authenticated? should return false for a user with nil digest" do
     assert_not @user.authenticated?('')
+  end
+
+  test "mobile number should accept valid numbers" do
+    @user.mobile_number = "abcdefg"
+    assert_not @user.valid?
+    @user.mobile_number = "123456789+123456789+123456789"
+    assert_not @user.valid?
   end
 end

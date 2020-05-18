@@ -32,7 +32,7 @@ end
     if current_user.admin? or current_user? User.find(params[:id]) # only admin and user himself can edit
       @user = User.find(params[:id])
     else
-      redirect_back fallback_location: '/'
+      redirect_to '/'
     end
   end
 
@@ -40,7 +40,7 @@ end
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
       flash[:success] = "Profile updated"
-      redirect_to @user
+      redirect_to @user, status: 302
     else
       render 'edit'
     end

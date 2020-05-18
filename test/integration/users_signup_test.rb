@@ -8,10 +8,9 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
             post users_path, params: { user: { name: "",
                                        email: "user@invalid",
                                        password: "foo",
-                                       password_confirmation: "bar"}}
+                                       password_confirmation: "bar",
+                                       mobile_number: ""}}
         end
-        follow_redirect!
-        assert_template 'user/show'
-        assert is_logged_in?
+        assert_not is_logged_in?
     end
 end
