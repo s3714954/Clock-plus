@@ -31,3 +31,23 @@ User.create!(name: "s3714954",
                  password_confirmation: password,
                  mobile_number: mobile_number)
 end
+
+["Uncategorized", "RMIT", "Information Technology", "Economics", "COVID-19"].each do |s|
+    Category.create!( name: s )
+end
+
+100.times do |n|
+    post = Post.create!(
+        user: User.offset(rand(User.count)).first,
+        title: Faker::Lorem.sentence,
+        content: Faker::Lorem.paragraphs(rand(1..10)).join("\n\n"),
+        category: Category.offset(rand(Category.count)).first,
+        views: rand(100)
+    )
+    rand(0..10).times do |m|
+        post.comments.create!(
+            user: User.offset(rand(User.count)).first,
+            content: Faker::Lorem.sentences(rand(1..3)).join(" ")
+        )
+    end
+end

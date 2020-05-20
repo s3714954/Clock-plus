@@ -15,6 +15,9 @@ class User < ApplicationRecord
     validates :mobile_number, presence: true, length: { maximum: 20 },
                                     format: { with: VALID_MOBILE_NUMBER_REGEX }
 
+    has_many :posts, dependent: :destroy
+    has_many :comments, dependent: :destroy
+
     # Returns the hash digest of the given string.
     def User.digest(string)
         cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
