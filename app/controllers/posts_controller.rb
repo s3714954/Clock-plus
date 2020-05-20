@@ -1,15 +1,22 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
+  include SessionsHelper
+  before_action :correct_user, only: [:edit, :update, :destroy]
+  before_action :admin_user, only: [:edit, :update, :destroy]
+
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @posts = Post.paginate(page: params[:page])
   end
 
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @post = Post.find(params[:id])
+    @post.views += 1
+    @post.save
   end
 
   # GET /posts/new

@@ -1,11 +1,19 @@
 <% provide(:title, @user.name) %>
 <div class="row">
- <aside class="col-md-4">
- <section class="user_info">
-<h1>
-  <%= gravatar_for @user %>
-  <%= @user.name %>
-</h1>
-</section>
-</aside>
+  <section class="user_info col-md-4">
+    <h1>
+      <%= gravatar_for @user %>
+      <%= @user.name %>
+    </h1>
+  </section>
+</div>
+<div class="row">
+  <section class="user-posts col-md-6 col-xs-12">
+    <h2>Recent Posts</h2>
+    <%= render "posts/cards", posts: @user.posts.limit(10) %>
+  </section>
+  <div class="user-comments col-md-6 col-xs-12">
+    <h2>Recent Comments</h2>
+    <%= render @user.comments.limit(10), need_title: true %>
+  </div>
 </div>

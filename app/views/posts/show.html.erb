@@ -1,29 +1,21 @@
-<p id="notice"><%= notice %></p>
+<% provide :title, @post.title %>
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
+<%= render @post %>
 
-<p>
-  <strong>Content:</strong>
-  <%= @post.content %>
-</p>
-
-<p>
-  <strong>Category:</strong>
-  <%= @post.category %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @post.user %>
-</p>
-
-<p>
-  <strong>Comment:</strong>
-  <%= @post.comment %>
-</p>
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+<section class="post-comments">
+    <h4>Comments <%= glyphicon "comment", @post.comments.count %></h4>
+    <%= render @post.comments %>
+    <div class="panel panel-default">
+            <div class="panel-body">
+                <% if logged_in? %>
+                    <%= form_for :comment do |f| %>
+                        <%= f.text_area :content, class: "form-control", placeholder: "maximum 1,000 characters" %>
+                        <%= f.hidden_field :post_id, value: @post.id %>
+                        <%= f.submit "Submit", class: "btn btn-primary" %>
+                    <% end %>
+                <% else %>
+                    <p>Please <%= link_to "login", "/login", class: "btn btn-primary" %> to reply.</p>
+                <% end %>
+            </div>
+    </div>
+</section>

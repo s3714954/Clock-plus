@@ -1,0 +1,16 @@
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-xs-12 col-sm-2">
+                <%= gravatar_for comment.user, size:50 %>
+            </div>
+            <div class="col-xs-12 col-sm-10">
+                <% if defined?(need_title) && need_title %>
+                    <p><small><%= link_to comment.post.title, comment.post %></small></p>
+                <% end %>
+                <p><%= simple_format comment.content %></p>
+                <p><%= glyphicon "user", link_to(comment.user.name, comment.user) %> <%= glyphicon "time", comment.created_at %></p>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   resources :categories
-  resources :comments
+  resources :comments, except: [ :index, :show ]
   resources :posts
+  post '/posts/:id', to: 'comments#create'
   get 'sessions/new'
   get 'users/new'
       root  'static_pages#home'

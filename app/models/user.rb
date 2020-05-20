@@ -15,8 +15,8 @@ class User < ApplicationRecord
     validates :mobile_number, presence: true, length: { maximum: 20 },
                                     format: { with: VALID_MOBILE_NUMBER_REGEX }
 
-    has_many :posts, dependent: :destroy
-    has_many :comments, dependent: :destroy
+    has_many :posts, -> { order(created_at: :desc) }, dependent: :destroy
+    has_many :comments, -> { order(created_at: :desc) }, dependent: :destroy
 
     # Returns the hash digest of the given string.
     def User.digest(string)

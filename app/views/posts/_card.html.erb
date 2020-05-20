@@ -1,0 +1,13 @@
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-sm-2 col-xs-12">
+                <%= gravatar_for post.user, size:50 %>
+            </div>
+            <div class="col-sm-10 col-xs-12">
+                <h4><%= link_to post.title, post %></h4>
+                <%= post_info post %>
+            </div>
+        </div>
+    </div>
+</div>
