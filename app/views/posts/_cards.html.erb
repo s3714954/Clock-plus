@@ -1,4 +1,4 @@
-<% unless posts.empty? %>
+<% unless posts&.empty? %>
   <% posts.each do |post| %>
     <%= render "posts/card", post: post %>
   <% end %>
