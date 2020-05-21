@@ -32,11 +32,11 @@ User.create!(name: "s3714954",
                  mobile_number: mobile_number)
 end
 
-["Uncategorized", "RMIT", "Information Technology", "Economics", "COVID-19"].each do |s|
+["Uncategorized", "A.I.", "V.R.", "RMIT", "Game", "Rails", "Go", "Web", "M.L.", "Joke", "Rest", "Vue", "Node", "iOS", "AWS"].each do |s|
     Category.create!( name: s )
 end
 
-100.times do |n|
+300.times do |n|
     post = Post.create!(
         user: User.offset(rand(User.count)).first,
         title: Faker::Lorem.sentence,

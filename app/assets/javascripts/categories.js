@@ -11,6 +11,7 @@ document.addEventListener('turbolinks:load', ()=>{
             document.querySelectorAll(".filter.active").forEach( el2=> {
                 url.searchParams.append("category[]", el2.value);
             })
+            url.searchParams.append("filtered", 1);
             document.location = url;
         })
     })

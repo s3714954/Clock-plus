@@ -13,30 +13,20 @@
 
   <div class="field">
     <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
-
-  <div class="field">
-    <%= form.label :content %>
-    <%= form.text_field :content %>
+    <%= form.text_field :title, class: "form-control" %>
   </div>
 
   <div class="field">
     <%= form.label :category %>
-    <%= form.text_field :category %>
+    <%= form.collection_select :category_id, Category.all, :id, :name, {include_blank: false}, {class: "form-control"} %>
   </div>
 
   <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :comment %>
-    <%= form.text_field :comment %>
+    <%= form.label :content %>
+    <%= form.text_area :content, rows: 10, class: "form-control", placeholder: "maximum 10,000 characters" %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Submit", class: "btn btn-primary" %>
   </div>
 <% end %>

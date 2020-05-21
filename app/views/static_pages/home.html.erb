@@ -4,10 +4,13 @@
   <section class="posts col-xs-12 col-md-8">
     <div class="panel panel-info">
       <div class="panel-heading">
-        <nav class="btn-group">
-          <button class="to-recent btn <%= params[:filtered] ? "btn-default" : "btn-primary" %>">Recent posts</button>
-          <button class="to-filtered btn <%= params[:filtered] ? "btn-primary" : "btn-default" %>">Filtered posts</button>
-          <a href="/posts" class="btn btn-default">All posts</a>
+        <nav>
+          <div class="btn-group">
+            <button class="to-recent btn <%= params[:filtered] ? "btn-default" : "btn-primary" %>">Recent Posts</button>
+            <button class="to-filtered btn <%= params[:filtered] ? "btn-primary" : "btn-default" %>">Filtered Posts</button>
+            <a href="/posts" class="btn btn-default">All posts</a>
+          </div>
+          <a href="/posts/new" class="btn btn-success">New Post</a>
         </nav>
       </div>
       <div class="panel-body">

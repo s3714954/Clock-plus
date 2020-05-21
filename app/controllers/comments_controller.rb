@@ -1,11 +1,13 @@
 class CommentsController < ApplicationController
   include SessionsHelper
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
+  #before_action :correct_user, only: [ :edit, :destroy]
 
   # GET /comments
   # GET /comments.json
   def index
-    @comments = Comment.all
+    @comments = Comment.all unless logged_in?
+    @comments = Comment.where("user_id = ?", current_user.id) if logged_in?
   end
 
   # GET /comments/1
@@ -29,6 +31,7 @@ class CommentsController < ApplicationController
     @comment.user ||= current_user
 
     if @comment.save
+      @comment.user.touch
       flash[:success] = "Comment recorded."
       redirect_back fallback_location: "/"  
     else

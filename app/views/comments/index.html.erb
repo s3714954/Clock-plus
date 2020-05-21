@@ -1,3 +1,4 @@
+<% provide :title, "Your comments"  %>
 <p id="notice"><%= notice %></p>
 
 <h1>Comments</h1>
@@ -7,8 +8,7 @@
     <tr>
       <th>Content</th>
       <th>Post</th>
-      <th>User</th>
-      <th colspan="3"></th>
+      <th></th>
     </tr>
   </thead>
 
@@ -16,11 +16,8 @@
     <% @comments.each do |comment| %>
       <tr>
         <td><%= comment.content %></td>
-        <td><%= comment.post %></td>
-        <td><%= comment.user %></td>
-        <td><%= link_to 'Show', comment %></td>
-        <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
-        <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to comment.post.title, comment.post %></td>
+        <td><%= link_to 'Delete', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

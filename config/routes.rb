@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :categories
-  resources :comments, except: [ :index, :show ]
+  resources :categories, except: [ :create, :destroy ]
+  resources :comments, except: [ :show ]
   resources :posts
   post '/posts/:id', to: 'comments#create'
   get 'sessions/new'

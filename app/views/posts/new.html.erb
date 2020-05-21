@@ -1,5 +1,8 @@
-<h1>New Post</h1>
+<% provide :title, "New Post" %>
 
-<%= render 'form', post: @post %>
-
-<%= link_to 'Back', posts_path %>
+<section class="panel panel-primary">
+    <div class="panel-heading">New Post</div>
+    <div class="panel-body">
+        <%= render 'form', post: @post %>
+    </div>
+</section>

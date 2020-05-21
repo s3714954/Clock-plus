@@ -2,6 +2,7 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   include SessionsHelper
+  before_action :logged_in?, only: :create
   before_action :correct_user, only: [:edit, :update, :destroy]
   before_action :admin_user, only: [:edit, :update, :destroy]
 
@@ -22,6 +23,10 @@ class PostsController < ApplicationController
   # GET /posts/new
   def new
     @post = Post.new
+    unless logged_in?
+      flash[:warning] = "You have to log in to post."
+      redirect_to "/login"
+    end 
   end
 
   # GET /posts/1/edit
@@ -32,15 +37,15 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
+    @post.user = current_user
+    @post.category = Category.find(params[:post][:category_id])
+    @post.views = 0
 
-    respond_to do |format|
-      if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
-        format.json { render :show, status: :created, location: @post }
-      else
-        format.html { render :new }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
-      end
+    if @post.save
+      @post.user.touch
+      redirect_to @post
+    else
+      format.html { render :new }
     end
   end
 
@@ -76,6 +81,6 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit(:title, :content, :category, :user_id, :comment)
+      params.require(:post).permit(:title, :content, :category, :user_id, :comment, :category_id)
     end
 end
