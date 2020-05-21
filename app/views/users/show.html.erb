@@ -1,19 +1,25 @@
 <% provide(:title, @user.name) %>
 <div class="row">
-  <section class="user_info col-md-4">
+  <section class="user-info col-md-4">
     <h1>
       <%= gravatar_for @user %>
       <%= @user.name %>
     </h1>
   </section>
+  <section class="user-data col-md-8">
+    <%= glyphicon "time", @user.created_at %>
+    <nav>
+      <a href="/posts/by/<%= @user.id %>"><%= glyphicon "pencil", "All Posts" %></a> <a href="/comments/by/<%= @user.id %>"<%= glyphicon "comment", "All comments" %></a> <a href="/comments/to/<%= @user.id %>"<%= glyphicon "retweet", "Comments to user" %></a>
+    </nav>
+  </section>
 </div>
 <div class="row">
   <section class="user-posts col-md-6 col-xs-12">
-    <h2>Recent Posts</h2>
+    <h2><a href="/posts/by/<%= @user.id %>">Recent Posts</a></h2>
     <%= render "posts/cards", posts: @user.posts.limit(10) %>
   </section>
   <div class="user-comments col-md-6 col-xs-12">
-    <h2>Recent Comments</h2>
+    <h2><a href="/comments/by/<%= @user.id %>">Recent Comments</a></h2>
     <%= render @user.comments.limit(10), need_title: true %>
   </div>
 </div>

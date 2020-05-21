@@ -73,6 +73,11 @@ class PostsController < ApplicationController
     end
   end
 
+  def user
+    @posts = Post.where("user_id = ?", params[:id])
+    render "posts/user"
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post

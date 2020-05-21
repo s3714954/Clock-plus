@@ -1,28 +1,3 @@
-<% provide :title, "Your comments"  %>
-<p id="notice"><%= notice %></p>
+<% provide :title, "User Comments"  %>
 
-<h1>Comments</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Content</th>
-      <th>Post</th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @comments.each do |comment| %>
-      <tr>
-        <td><%= comment.content %></td>
-        <td><%= link_to comment.post.title, comment.post %></td>
-        <td><%= link_to 'Delete', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Comment', new_comment_path %>
+<%= render @comments, need_title: true %>

@@ -15,4 +15,7 @@ Rails.application.routes.draw do
       post    '/login',     to: 'sessions#create'
       delete  '/logout',    to: 'sessions#destroy'
       resources :users   
+      get '/posts/by/:id',   to: 'posts#user'
+      get '/comments/by/:id', to: 'comments#index'
+      get '/comments/to/:id', to: 'comments#to_user'
 end

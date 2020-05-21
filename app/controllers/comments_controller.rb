@@ -3,11 +3,9 @@ class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
   #before_action :correct_user, only: [ :edit, :destroy]
 
-  # GET /comments
-  # GET /comments.json
+  # GET /comments/by/:id
   def index
-    @comments = Comment.all unless logged_in?
-    @comments = Comment.where("user_id = ?", current_user.id) if logged_in?
+    @comments = Comment.where("user_id = ?", params[:id])
   end
 
   # GET /comments/1
@@ -63,6 +61,15 @@ class CommentsController < ApplicationController
       format.html { redirect_to comments_url, notice: 'Comment was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  # GET /comments/to/:id
+  def to_user
+    user = User.find(params[:id])
+    posts = user.posts
+    post_ids = posts.map {|post| post.id}
+    @comments = Comment.where("post_id in (?)", post_ids)
+    render "index"
   end
 
   private

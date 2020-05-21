@@ -12,7 +12,7 @@ class User < ApplicationRecord
     has_secure_password
     validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
     VALID_MOBILE_NUMBER_REGEX = /\+?[\d+-]*\d+/i
-    validates :mobile_number, presence: true, length: { maximum: 20 },
+    validates :mobile_number, presence: true, length: { minimum: 8, maximum: 20 },
                                     format: { with: VALID_MOBILE_NUMBER_REGEX }
 
     has_many :posts, -> { order(created_at: :desc) }, dependent: :destroy
