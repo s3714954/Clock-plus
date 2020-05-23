@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   include SessionsHelper
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
-  #before_action :correct_user, only: [ :edit, :destroy]
+  before_action :logged_in?, only: [:create]
 
   # GET /comments/by/:id
   def index
@@ -26,16 +26,17 @@ class CommentsController < ApplicationController
   # POST /comments.json
   def create
     @comment = Comment.new(comment_params)
-    @comment.user ||= current_user
+    @comment.post = Post.find(request.path.split("/").last) if params[:post_id].nil? 
+    @comment.user = current_user
 
     if @comment.save
       @comment.user.touch
       flash[:success] = "Comment recorded."
-      redirect_back fallback_location: "/"  
+      redirect_to @comment.post
     else
       flash[:warning] = "Comment failed, please try again."
       flash[:danger] = @comment.errors.full_messages.join("\n\n")
-      redirect_back fallback_location: "/"
+      redirect_to @comment.post
     end
   end
 
@@ -80,6 +81,6 @@ class CommentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def comment_params
-      params.require(:comment).permit(:content, :post_id, :user_id)
+      params.require(:comment).permit(:content, :user_id)
     end
 end
