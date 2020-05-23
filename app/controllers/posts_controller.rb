@@ -3,8 +3,6 @@ class PostsController < ApplicationController
 
   include SessionsHelper
   before_action :logged_in?, only: :create
-  before_action :correct_user, only: [:edit, :update, :destroy]
-  before_action :admin_user, only: [:edit, :update, :destroy]
 
   # GET /posts
   # GET /posts.json
@@ -86,6 +84,6 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit(:title, :content, :category, :user_id, :comment, :category_id)
+      params.require(:post).permit(:title, :content, :user_id, :comment, :category_id)
     end
 end
