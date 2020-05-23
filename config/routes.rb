@@ -13,7 +13,7 @@ Rails.application.routes.draw do
       get     '/login',     to: 'sessions#new'
       post    '/login',     to: 'sessions#create'
       delete  '/logout',    to: 'sessions#destroy'
-      resources :users   
+      resources :users
       get '/posts/by/:id',   to: 'posts#user'
       get '/comments/by/:id', to: 'comments#index'
       get '/comments/to/:id', to: 'comments#to_user'

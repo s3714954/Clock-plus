@@ -35,8 +35,8 @@ class PostTest < ActiveSupport::TestCase
 
   test "should have category automatically (defaults to first one)" do
     @post.category = nil
-    assert_equal Category.first, @post.category
     assert @post.valid?
+    assert_equal Category.first, @post.category
     @post.category = @category
     assert @post.valid?
   end
