@@ -10,9 +10,11 @@ class User < ApplicationRecord
                                       format: { with: VALID_EMAIL_REGEX }, 
                                       uniqueness: { case_sensitive: false }
     has_secure_password
-    validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
-    VALID_MOBILE_NUMBER_REGEX = /\+?[\d+-]*\d+/i
-    validates :mobile_number, presence: true, length: { minimum: 8, maximum: 20 },
+    VALID_PASSWORD_REGEX = /\A[0-9a-zA-Z]+\z/i
+    validates :password, presence: true, length: { minimum: 8, maxmimum: 20 }, allow_nil: true,
+                                      format: { with: VALID_PASSWORD_REGEX }
+    VALID_MOBILE_NUMBER_REGEX = /\A\d+\z/i
+    validates :mobile_number, presence: true, length: { minimum: 10, maximum: 13 },
                                     format: { with: VALID_MOBILE_NUMBER_REGEX }
 
     has_many :posts, -> { order(created_at: :desc) }, dependent: :destroy

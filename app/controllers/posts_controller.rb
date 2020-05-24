@@ -36,7 +36,8 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user = current_user
-    @post.category = Category.find(params[:post][:category_id])
+    category_id = params[:post][:category_id].empty? ? Category.first.id : params[:post][:category_id]
+    @post.category = Category.find(category_id)
     @post.views = 0
 
     if @post.save

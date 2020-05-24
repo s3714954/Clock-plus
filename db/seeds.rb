@@ -10,21 +10,21 @@ User.create!(
     email: "RAD@rad.com",
     password: "Rails2020",
     password_confirmation: "Rails2020",
-    mobile_number: "123456789"
+    mobile_number: "1234567890"
 )
 
 User.create!(name: "s3714954",
              email: "1201wah@gmail.com",
              password: "gundum1234",
              password_confirmation: "gundum1234",
-             mobile_number: "+61-123456789",
+             mobile_number: "61123456789",
              admin: true)
 
 99.times do |n|
     name = Faker::Name.name
     email = "example-#{n+1}@railstutorial.org"
     password = "password"
-    mobile_number = "+61-#{n+1}"
+    mobile_number = "123456789#{n+1}"
     User.create!(name: name,
                  email: email,
                  password: password,
@@ -32,7 +32,7 @@ User.create!(name: "s3714954",
                  mobile_number: mobile_number)
 end
 
-["Uncategorized", "A.I.", "V.R.", "RMIT", "Game", "Rails", "Go", "Web", "M.L.", "Joke", "Rest", "Vue", "Node", "iOS", "AWS"].each do |s|
+["News", "A.I.", "V.R.", "RMIT", "Game", "Rails", "Go", "Web", "M.L.", "Joke", "Rest", "Vue", "Node", "iOS", "AWS"].each do |s|
     Category.create!( name: s )
 end
 
@@ -42,7 +42,7 @@ end
         title: Faker::Lorem.sentence,
         content: Faker::Lorem.paragraphs(rand(1..10)).join("\n\n"),
         category: Category.offset(rand(Category.count)).first,
-        views: rand(100)
+        views: rand(1000)
     )
     rand(0..10).times do |m|
         post.comments.create!(

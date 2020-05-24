@@ -1,21 +1,28 @@
 <% provide :title, @post.title %>
 
-<%= render @post %>
-
-<section class="post-comments">
-    <h4>Comments <%= glyphicon "comment", @post.comments.count %></h4>
-    <%= render @post.comments %>
-    <div class="panel panel-default">
-            <div class="panel-body">
-                <% if logged_in? %>
-                    <%= form_for :comment do |f| %>
-                        <%= f.text_area :content, class: "form-control", placeholder: "maximum 1,000 characters" %>
-                        <%= f.hidden_field :post_id, value: @post.id %>
-                        <%= f.submit "Submit", class: "btn btn-primary" %>
-                    <% end %>
-                <% else %>
-                    <p>Please <%= link_to "login", "/login", class: "btn btn-primary" %> to reply.</p>
-                <% end %>
+<main class="row">
+    <div class="post col-xs-12 col-md-8">
+        <%= render @post %>
+        
+        <section class="post-comments">
+            <h4>Comments <%= glyphicon "comment", @post.comments.count %></h4>
+            <%= render @post.comments %>
+            <div class="panel panel-default">
+                    <div class="panel-body">
+                        <% if logged_in? %>
+                            <%= form_for :comment do |f| %>
+                                <%= f.text_area :content, class: "form-control", placeholder: "maximum 1,000 characters" %>
+                                <%= f.hidden_field :post_id, value: @post.id %>
+                                <%= f.submit "Submit", class: "btn btn-primary" %>
+                            <% end %>
+                        <% else %>
+                            <p>Please <%= link_to "login", "/login", class: "btn btn-primary" %> to reply.</p>
+                        <% end %>
+                    </div>
             </div>
+        </section>        
     </div>
-</section>
+    <div class="col-xs-12 col-md-4">
+        <%= render "shared/side" %>
+    </div>
+</man>

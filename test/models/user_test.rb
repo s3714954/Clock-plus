@@ -4,8 +4,8 @@ class UserTest < ActiveSupport::TestCase
 
   def setup
     @user = User.new(name: "Example User", email: "user@example.com",
-                      password: "footbar", password_confirmation: "footbar",
-                      mobile_number: "+61-123456789")
+                      password: "footbart", password_confirmation: "footbart",
+                      mobile_number: "61123456789")
   end
 
   test "should be valid" do
@@ -53,7 +53,7 @@ class UserTest < ActiveSupport::TestCase
   test "mobile number should accept valid numbers" do
     @user.mobile_number = "abcdefg"
     assert_not @user.valid?
-    @user.mobile_number = "123456789+123456789+123456789"
+    @user.mobile_number = "123456789123456789123456789"
     assert_not @user.valid?
   end
 end

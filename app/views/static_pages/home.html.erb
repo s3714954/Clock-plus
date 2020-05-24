@@ -21,52 +21,6 @@
   </section>
   
   <div class="col-xs-12 col-md-4">
-    <section class="recent-users row">
-      <div class="col-12 panel panel-default">
-        <div class="panel-heading">Recent Members</div>
-        <div class="panel-body">
-          <div class="row">
-            <% User.order(updated_at: :desc).limit(12).each do |user| %>
-              <div class="col-xs-3" style="height: calc(3em + 50px)" >
-                <%= link_to gravatar_for(user, size: 50), user %>
-                <%= link_to user.name, user, style: "overflow: hidden" %>
-              </div>
-            <% end %>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="topic row">
-      <div class="col-12 panel panel-default">
-        <div class="panel-heading">Topic</div>
-        <div class="panel-body">
-          <% Category.all.each do |category| %>
-            <button value="<%= category.id %>" class="filter btn btn-default <%= params[:category]&.include?(category.id.to_s) ? "active" : "" %>"><%= category.name %></button>
-          <% end %>
-        </div>
-      </div>
-    </section>
-    <section class="row">
-      <div class="col-12 panel panel-default">
-        <div class="panel-heading">Post</div>
-        <div class="panel-body">
-          <% Post.order(views: :desc).limit(5).each do |post| %>
-            <p><%= link_to post.title, post %> <%= glyphicon "eye-open", post.views %></p>
-          <% end %>
-        </div>
-      </div>
-    </section>
-    <section class="row">
-      <div class="col-12 panel panel-default">
-        <div class="panel-heading">Links</div>
-        <div class="panel-body">
-          <nav>
-            <a href="https://www.rmit.edu.au/" class="btn btn-default">RMIT</a>
-            <a href="https://rubyonrails.org/" class="btn btn-default">Rails</a>
-            <a href="https://api.rubyonrails.org/" class="btn btn-default">Docs</a>
-          </nav>
-        </div>
-      </div>
-    </section>
+    <%= render "shared/side" %>
   </div>
 </main>
