@@ -9,11 +9,14 @@
   <%= f.label :email %>
   <%= f.text_field :email, class: 'form-control' %>
 
-  <%= f.label :password %>
-  <%= f.password_field :password, class: 'form-control' %>
+  <% hide_password ||= false %>
+  <% unless hide_password %>
+    <%= f.label :password %>
+    <%= f.password_field :password, class: 'form-control' %>
 
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation, class: 'form-control' %>
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation, class: 'form-control' %>
+  <% end %>
 
   <%= f.label :mobile_number %>
   <%= f.text_field :mobile_number, class: 'form-control' %>

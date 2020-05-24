@@ -14,7 +14,9 @@ Rails.application.routes.draw do
       post    '/login',     to: 'sessions#create'
       delete  '/logout',    to: 'sessions#destroy'
       resources :users
+      get '/setting', to: 'static_pages#setting'
       get '/posts/by/:id',   to: 'posts#user'
       get '/comments/by/:id', to: 'comments#index'
       get '/comments/to/:id', to: 'comments#to_user'
+      resources :verifications, only: [ :show, :create, :update]
 end

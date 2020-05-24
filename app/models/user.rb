@@ -19,6 +19,7 @@ class User < ApplicationRecord
 
     has_many :posts, -> { order(created_at: :desc) }, dependent: :destroy
     has_many :comments, -> { order(created_at: :desc) }, dependent: :destroy
+    has_one :verification, dependent: :destroy
 
     # Returns the hash digest of the given string.
     def User.digest(string)
