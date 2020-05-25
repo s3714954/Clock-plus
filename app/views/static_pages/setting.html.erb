@@ -12,13 +12,19 @@
         </div>
     </nav>
     <div class="col-xs-12 col-sm-10">
-        <section class="personal-info panel panel-primary">
+        <nav class="btn-group">
+            <button id="personal-info-btn" class="btn btn-default">Personal Info</button>
+            <button id="password-btn" class="btn btn-default">Password</button>
+            <button id="gravatar-setting-btn" class="btn btn-default">Gravatar</button>
+            <button id="verification-btn" class="btn btn-default">Verification</button>
+        </nav>
+        <section id="personal-info-tab" class="panel panel-primary">
             <div class="panel-heading">Personal Info</div>
             <div class="panel-body">
                 <%= render "users/form", hide_password: true %>
             </div>
         </section>
-        <section class="password panel panel-primary">
+        <section id="password-tab" class="panel panel-primary">
             <div class="panel-heading">Password</div>
             <div class="panel-body">
                 <%= form_for @user do |f| %>
@@ -32,7 +38,7 @@
                 <% end %>
             </div>
         </section>
-        <section class="gravatar-setting panel panel-primary">
+        <section id="gravatar-setting-tab" class="panel panel-primary">
             <div class="panel-heading">Gravatar</div>
             <div class="panel-body">
                 <div class="gravatar_edit">
@@ -41,7 +47,7 @@
                 </div>
             </div>
         </section>
-        <section class="verification panel panel-primary">
+        <section id="verification-tab" class="panel panel-primary">
             <div class="panel-heading">Verification</div>
             <div class="panel-body">
                 <%= form_for @verification do |f| %>
