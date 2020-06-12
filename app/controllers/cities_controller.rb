@@ -2,7 +2,7 @@ class CitiesController < ApplicationController
 
     def toggle
         city = City.find_by(name: city_params[:name])
-        city ||= City.find(params[:id])
+        city ||= City.find(params[:id]) unless params[:id].nil?
         unless city.nil?
             city.toggled = city_params[:toggled]
             city.touch

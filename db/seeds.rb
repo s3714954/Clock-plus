@@ -16,3 +16,17 @@ zones.each do |zone|
         City.create!(name: city.split("/").last.tr("_", " "), offset: zone["offset"])
     end
 end
+
+(-23..23).each do |offset|
+    utc_name = "UTC#{sprintf("%+d", offset)}"
+    gmt_name = "GMT#{sprintf("%+d", offset)}"
+    City.create!(name: utc_name, offset: offset) if City.find_by(name: utc_name).nil?
+    City.create!(name: gmt_name, offset: offset) if City.find_by(name: gmt_name).nil?
+end
+
+City.create!(name: "UTC", offset: 0)
+City.create!(name: "GMT", offset: 0)
+
+melbourne = City.find_by(name: "Melbourne")
+melbourne.toggled = true
+melbourne.save

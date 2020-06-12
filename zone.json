@@ -6,7 +6,7 @@
     "isdst": false,
     "text": "(UTC-12:00) International Date Line West",
     "utc": [
-      "Etc/GMT+12"
+      "Etc/GMT-12"
     ]
   },
   {
@@ -16,7 +16,7 @@
     "isdst": false,
     "text": "(UTC-11:00) Coordinated Universal Time-11",
     "utc": [
-      "Etc/GMT+11",
+      "Etc/GMT-11",
       "Pacific/Midway",
       "Pacific/Niue",
       "Pacific/Pago_Pago"
@@ -29,7 +29,7 @@
     "isdst": false,
     "text": "(UTC-10:00) Hawaii",
     "utc": [
-      "Etc/GMT+10",
+      "Etc/GMT-10",
       "Pacific/Honolulu",
       "Pacific/Johnston",
       "Pacific/Rarotonga",
@@ -100,7 +100,7 @@
       "America/Dawson_Creek",
       "America/Hermosillo",
       "America/Phoenix",
-      "Etc/GMT+7"
+      "Etc/GMT-7"
     ]
   },
   {
@@ -144,7 +144,7 @@
       "America/Guatemala",
       "America/Managua",
       "America/Tegucigalpa",
-      "Etc/GMT+6",
+      "Etc/GMT-6",
       "Pacific/Galapagos"
     ]
   },
@@ -211,7 +211,7 @@
       "America/Lima",
       "America/Panama",
       "America/Rio_Branco",
-      "Etc/GMT+5"
+      "Etc/GMT-5"
     ]
   },
   {
@@ -334,7 +334,7 @@
       "America/St_Thomas",
       "America/St_Vincent",
       "America/Tortola",
-      "Etc/GMT+4"
+      "Etc/GMT-4"
     ]
   },
   {
@@ -406,7 +406,7 @@
       "America/Santarem",
       "Antarctica/Rothera",
       "Atlantic/Stanley",
-      "Etc/GMT+3"
+      "Etc/GMT-3"
     ]
   },
   {
@@ -448,7 +448,7 @@
     "utc": [
       "America/Noronha",
       "Atlantic/South_Georgia",
-      "Etc/GMT+2"
+      "Etc/GMT-2"
     ]
   },
   {
@@ -478,7 +478,7 @@
     "text": "(UTC-01:00) Cape Verde Is.",
     "utc": [
       "Atlantic/Cape_Verde",
-      "Etc/GMT+1"
+      "Etc/GMT-1"
     ]
   },
   {
@@ -656,7 +656,7 @@
       "Africa/Niamey",
       "Africa/Porto-Novo",
       "Africa/Tunis",
-      "Etc/GMT-1"
+      "Etc/GMT+1"
     ]
   },
   {
@@ -754,7 +754,7 @@
       "Africa/Maputo",
       "Africa/Maseru",
       "Africa/Mbabane",
-      "Etc/GMT-2"
+      "Etc/GMT+2"
     ]
   },
   {
@@ -866,7 +866,7 @@
       "Africa/Mogadishu",
       "Africa/Nairobi",
       "Antarctica/Syowa",
-      "Etc/GMT-3",
+      "Etc/GMT+3",
       "Indian/Antananarivo",
       "Indian/Comoro",
       "Indian/Mayotte"
@@ -917,7 +917,7 @@
     "utc": [
       "Asia/Dubai",
       "Asia/Muscat",
-      "Etc/GMT-4"
+      "Etc/GMT+4"
     ]
   },
   {
@@ -987,7 +987,7 @@
       "Asia/Oral",
       "Asia/Samarkand",
       "Asia/Tashkent",
-      "Etc/GMT-5",
+      "Etc/GMT+5",
       "Indian/Kerguelen",
       "Indian/Maldives"
     ]
@@ -1054,7 +1054,7 @@
       "Asia/Bishkek",
       "Asia/Qyzylorda",
       "Asia/Urumqi",
-      "Etc/GMT-6",
+      "Etc/GMT+6",
       "Indian/Chagos"
     ]
   },
@@ -1095,7 +1095,7 @@
       "Asia/Pontianak",
       "Asia/Saigon",
       "Asia/Vientiane",
-      "Etc/GMT-7",
+      "Etc/GMT+7",
       "Indian/Christmas"
     ]
   },
@@ -1146,7 +1146,7 @@
       "Asia/Makassar",
       "Asia/Manila",
       "Asia/Singapore",
-      "Etc/GMT-8"
+      "Etc/GMT+8"
     ]
   },
   {
@@ -1201,7 +1201,7 @@
       "Asia/Dili",
       "Asia/Jayapura",
       "Asia/Tokyo",
-      "Etc/GMT-9",
+      "Etc/GMT+9",
       "Pacific/Palau"
     ]
   },
@@ -1267,7 +1267,7 @@
     "text": "(UTC+10:00) Guam, Port Moresby",
     "utc": [
       "Antarctica/DumontDUrville",
-      "Etc/GMT-10",
+      "Etc/GMT+10",
       "Pacific/Guam",
       "Pacific/Port_Moresby",
       "Pacific/Saipan",
@@ -1305,7 +1305,7 @@
     "text": "(UTC+11:00) Solomon Is., New Caledonia",
     "utc": [
       "Antarctica/Macquarie",
-      "Etc/GMT-11",
+      "Etc/GMT+11",
       "Pacific/Efate",
       "Pacific/Guadalcanal",
       "Pacific/Kosrae",
@@ -1343,7 +1343,7 @@
     "isdst": false,
     "text": "(UTC+12:00) Coordinated Universal Time+12",
     "utc": [
-      "Etc/GMT-12",
+      "Etc/GMT+12",
       "Pacific/Funafuti",
       "Pacific/Kwajalein",
       "Pacific/Majuro",
@@ -1393,7 +1393,7 @@
     "isdst": false,
     "text": "(UTC+13:00) Nuku'alofa",
     "utc": [
-      "Etc/GMT-13",
+      "Etc/GMT+13",
       "Pacific/Enderbury",
       "Pacific/Fakaofo",
       "Pacific/Tongatapu"
