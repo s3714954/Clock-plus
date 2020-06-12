@@ -1,26 +1,42 @@
 <% provide(:title, "Home") %>
+<h1>Clock+</h1>
+  <head>
+    <title><%= yield(:title) %> | Clock+ </title>
+  <head>
+<p><center>
+Clock+ built by Yan Wah Tong - s3714954@student.rmit.edu.au - 80+ - Thu 19:30 to 21:30
+</center></p>
 
-<main class="row">
-  <section class="posts col-xs-12 col-md-8">
-    <div class="panel panel-info">
-      <div class="panel-heading">
-        <nav>
-          <div class="btn-group">
-            <button class="to-recent btn <%= params[:filtered] ? "btn-default" : "btn-primary" %>">Recent Posts</button>
-            <button class="to-filtered btn <%= params[:filtered] ? "btn-primary" : "btn-default" %>">Selected Posts</button>
-            <a href="/posts" class="btn btn-default">All posts</a>
-          </div>
-          <a href="/posts/new" class="btn btn-success">New Post</a>
-        </nav>
-      </div>
-      <div class="panel-body">
-        <%= render "posts/cards", posts: @posts %>
-        <%= will_paginate @posts %>
-      </div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-2">
+      <p><%= glyphicon "usd", "Business time" %></p>
+      <p><%= glyphicon "time", "Business overtime" %></p>
+      <p><%= glyphicon "user", "Personal time" %></p>
+      <p><%= glyphicon "eye-close", "Sleeping time" %></p>
     </div>
-  </section>
-  
-  <div class="col-xs-12 col-md-4">
-    <%= render "shared/side" %>
+
+    <div class="col-xs-8">
+      <%= render City.where(toggled: true).order(updated_at: :asc) %>
+      <%= form_with model: City.new do |form| %>
+        <div class="field">
+          <%= form.text_field :name, class: "form-contorl" %>
+          <%= form.hidden_field :toggled, value: true %>
+        </div>
+      
+        <div class="actions">
+          <%= form.submit "+" %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="col-xs-2">
+      <p>Color theme</p>
+      <button class="theme-button btn btn-info" data-theme-name="light-theme">Light</button>
+      <button class="theme-button btn btn-info" data-theme-name="blue-theme">Blue</button>
+      <button class="theme-button btn btn-info" data-theme-name="dark-theme">Dark</button>
+      <p><input type="checkbox" id="format-toggle"><label for="format-toggle">24 hours clock</label></p>
+    </div>
+    
   </div>
-</main>
+</div>

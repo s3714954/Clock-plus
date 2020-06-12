@@ -17,3 +17,30 @@
  .d-none {
      display: none
  }
+
+ body {
+     background-color: var(--color-primary-background);
+     color: var(--color-text);
+ }
+
+ .jumbotron {
+     background-color: var(--color-secondary-background);
+ }
+
+ .dark-theme {
+    --color-text: white;
+    --color-primary-background: black;
+    --color-secondary-background: grey;
+ }
+
+ .light-theme {
+     --color-text: black;
+     --color-primary-background: white;
+     --color-secondary-background: lightgrey;
+ }
+
+ .blue-theme {
+    --color-text: lightgrey;
+    --color-primary-background: navy;
+    --color-secondary-background: steelblue;
+ }
