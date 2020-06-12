@@ -1,29 +1,12 @@
-### CHEATSHEET
+https://s3714954-clock.herokuapp.com/
 
-1. `docker-compose run web rails new . --force --no-deps --database=postgresql`
-2. `docker-compose build`
-3. `config/database.yml`
-
-```yml
-default: &default
-  adapter: postgresql
-  encoding: unicode
-  host: db
-  username: alex
-  password:
-  pool: 5
-
-development:
-  <<: *default
-  database: myapp_development
-
-
-test:
-  <<: *default
-  database: myapp_test
-```
-
-4. `docker-compose up`
-5. `docker-compose run web rake db:create`
-6. hit `http://localhost:3000`
-7. `docker-compose down`
+2020-06-12T15:11:12.376677+00:00 app[web.1]: I, [2020-06-12T15:11:12.376599 #4]  INFO -- : [48087c1c-b277-4e68-bfd1-3ebd9a356c3e]   Rendered layouts/_footer.html.erb (0.5ms)
+2020-06-12T15:11:12.377120+00:00 app[web.1]: I, [2020-06-12T15:11:12.377044 #4]  INFO -- : [48087c1c-b277-4e68-bfd1-3ebd9a356c3e] Completed 200 OK in 25ms (Views: 19.3ms | ActiveRecord: 2.9ms)
+2020-06-12T15:11:12.378133+00:00 heroku[router]: at=info method=GET path="/" host=s3714954-clock.herokuapp.com request_id=48087c1c-b277-4e68-bfd1-3ebd9a356c3e fwd="175.32.189.88" dyno=web.1 connect=1ms service=31ms status=200 bytes=6603 protocol=https
+2020-06-12T15:11:12.672787+00:00 heroku[router]: at=info method=GET path="/assets/application-981d3e4285c995b4efeca3389be92b01b14a0445fbb64e1fa0b975665a60d2fc.css" host=s3714954-clock.herokuapp.com request_id=4d33eb26-1e0c-4b11-b36c-1f7bf02e338d fwd="175.32.189.88" dyno=web.1 connect=0ms service=4ms status=200 bytes=21424 protocol=https
+2020-06-12T15:11:13.165656+00:00 heroku[router]: at=info method=GET path="/assets/application-5f42508fef22c2e25636de2c26ef0d475b7b0f28149030f8f93e90a3702f504a.js" host=s3714954-clock.herokuapp.com request_id=9af7a863-c145-4c2f-8ffc-1d593b94c42f fwd="175.32.189.88" dyno=web.1 connect=0ms service=15ms status=200 bytes=63625 protocol=https
+2020-06-12T15:11:13.211417+00:00 heroku[router]: at=info method=GET path="/assets/facebook-185d8678adaf03841088317dec8b22215ab61d2359fc9986146712bc79560a77.png" host=s3714954-clock.herokuapp.com request_id=b8b7c02f-6dbf-49db-82a8-07617572fd95 fwd="175.32.189.88" dyno=web.1 connect=2ms service=19ms status=200 bytes=1119 protocol=https
+2020-06-12T15:11:13.479893+00:00 heroku[router]: at=info method=GET path="/assets/twitter-7146b9179d39cefb92198ebbfc04a2551b4508f80e9733fd337ee5bb6742598a.png" host=s3714954-clock.herokuapp.com request_id=ff5076cc-6570-4be8-a808-ea8fd3efb884 fwd="175.32.189.88" dyno=web.1 connect=4ms service=5ms status=200 bytes=2087 protocol=https
+2020-06-12T15:11:13.746978+00:00 heroku[router]: at=info method=GET path="/assets/linkedin-020510cd77714e10ec94ddbf8ab53f5690794972392011bdb2d9db5a68d217cb.png" host=s3714954-clock.herokuapp.com request_id=e2a45b00-a79b-4911-810e-d36cecfcca51 fwd="175.32.189.88" dyno=web.1 connect=5ms service=11ms status=200 bytes=2205 protocol=https
+2020-06-12T15:11:14.058497+00:00 heroku[router]: at=info method=GET path="/assets/bootstrap/glyphicons-halflings-regular-fe185d11a49676890d47bb783312a0cda5a44c4039214094e7957b4c040ef11c.woff2" host=s3714954-clock.herokuapp.com request_id=1e6a454a-764e-4c9e-93b9-375a1800fcae fwd="175.32.189.88" dyno=web.1 connect=5ms service=10ms status=200 bytes=18237 protocol=https
+2020-06-12T15:11:14.366273+00:00 heroku[router]: at=info method=GET path="/favicon.ico" host=s3714954-clock.herokuapp.com request_id=120b53b4-24a4-4d04-bf33-f955d4d7bc84 fwd="175.32.189.88" dyno=web.1 connect=3ms service=24ms status=200 bytes=207 protocol=https
